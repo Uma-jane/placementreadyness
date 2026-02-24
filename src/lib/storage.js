@@ -58,6 +58,26 @@ export function deleteAnalysisById(id) {
   }
 }
 
+export function updateAnalysis(id, updates) {
+  try {
+    let history = getHistory()
+    const entryIndex = history.findIndex(entry => entry.id === id)
+    
+    if (entryIndex === -1) return null
+    
+    history[entryIndex] = {
+      ...history[entryIndex],
+      ...updates
+    }
+    
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history))
+    return history[entryIndex]
+  } catch (error) {
+    console.error('Error updating analysis:', error)
+    return null
+  }
+}
+
 export function clearAllHistory() {
   try {
     localStorage.removeItem(HISTORY_KEY)
