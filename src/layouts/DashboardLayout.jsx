@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, Code, CheckSquare, BookOpen, User, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Code, CheckSquare, BookOpen, User, Menu, X, Zap, Clock } from 'lucide-react'
 import { useState } from 'react'
 
 export default function DashboardLayout() {
@@ -8,6 +8,8 @@ export default function DashboardLayout() {
 
   const navItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { path: '/analyze', label: 'Analyze JD', icon: Zap },
+    { path: '/history', label: 'History', icon: Clock },
     { path: '/practice', label: 'Practice', icon: Code },
     { path: '/assessments', label: 'Assessments', icon: CheckSquare },
     { path: '/resources', label: 'Resources', icon: BookOpen },
